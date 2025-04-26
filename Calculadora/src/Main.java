@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -10,11 +11,14 @@ public class Main {
 
         while(true) {
 
+            escolha = 0; // Reseta a "escolha" do user, caso haja uma exception o valor da variavel permane o mesmo do loop anterior
             System.out.println("\nCalculadora!\n");
             System.out.println("1 - Somar\n2 - Subtrair\n3 - Multiplicar\n4 - Dividir\n");
 
             System.out.print("Digite sua opção: ");
-            escolha = scan.nextInt();
+            try {
+                escolha = scan.nextInt();
+            } catch (InputMismatchException e){} // Caso entre aqui, o default no switch é executado
 
             switch (escolha) {
 
@@ -39,16 +43,17 @@ public class Main {
                 }
 
                 default -> {
-                    System.out.println("Parece que você digitou algo errado. Tente novamente!");
+                    System.out.println("\nParece que você digitou um valor inválido. Tente novamente!");
                     break;
                 }
             }
 
+            scan.nextLine(); // Limpa o buffer pra nao ter problemas em caso de exceçoes
             System.out.print("\n\nDeseja continuar? (1 - Sim / 2 - Nao) : ");
             int resposta =  scan.nextInt();
 
             if(resposta == 1)continue;
-                else break;
+                else break; // Interrompe o "while"
         }
     }
 }
