@@ -11,7 +11,7 @@ public class Main {
 
         while(true) {
 
-            escolha = 0; // Reseta a "escolha" do user, caso haja uma exception o valor da variavel permane o mesmo do loop anterior
+            escolha = 0; // Reseta a "escolha" do user, caso haja uma exception o valor da variavel permanece o mesmo do loop anterior
             System.out.println("\nCalculadora!\n");
             System.out.println("1 - Somar\n2 - Subtrair\n3 - Multiplicar\n4 - Dividir\n");
 
